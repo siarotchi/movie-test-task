@@ -1,0 +1,72 @@
+.lineContainer {
+  width: 95%;
+  margin: 10px auto;
+}
+
+.lineCarousel {
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lineSlider {
+  height: 100%;
+  display: flex;
+  position: absolute;
+}
+.lineSlider section {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lineSliderControls > * {
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+}
+.lineSliderLeft {
+  left: -10px;
+  color: red;
+}
+.lineSliderRight {
+  right: -10px;
+  color: red;
+}
+.lineSlider img {
+  width: 155px;
+  height: 240px;
+  margin: 0 20px;
+  border: 1px solid white;
+}
+.lineSlider img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Modal */
+.modalContainer {
+  font-size: 1em;
+  color: white;
+}
+.modalContainer h1,
+h2 {
+  color: white;
+}
+
+.modalWrapper {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    rgba(20.78%, 24.31%, 30.98%, 1) 150px,
+    rgba(29.8%, 31.76%, 36.08%, 0.84) 100%
+  );
+  opacity: 0.9;
+}
+.modalImage img {
+  width: 380px;
+  height: 500px;
+  border-radius: 10%;
+  margin: 20px;
+}

@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'antd/dist/antd.css';
+import { Row, Col } from 'antd';
+import useGetFilms from './hooks/api';
+import NowPlaying from './components/NowPlaying/NowPlaying';
+import Popular from './components/Popular/Popular';
+import Upcoming from './components/Upcoming/Upcoming';
+import Header from './components/Header/Header';
 
 function App() {
+  const { nowPlayingFilms, popularFilms, upcomingFilms, genres } = useGetFilms();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      {/* <Row> */}
+      <header span={24}>
+        <Header />
       </header>
+      {/* </Row> */}
+
+      <Row>
+        <Col className="col" span={24}>
+          <h1>Now Playing</h1>
+          <NowPlaying nowPlayingFilms={nowPlayingFilms} genres={genres} />
+        </Col>
+
+        <Col className="col" span={24}>
+          <h1>Popular</h1>
+          <Popular popularFilms={popularFilms} />
+        </Col>
+
+        <Col className="col" span={24}>
+          <h1>Upcoming</h1>
+          <Upcoming upcomingFilms={upcomingFilms} />
+        </Col>
+      </Row>
     </div>
   );
 }
