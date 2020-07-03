@@ -82,7 +82,18 @@ const Popular = ({ popularFilms }) => {
 };
 
 Popular.propTypes = {
-  popularFilms: PropTypes.array.isRequired,
+  nowPlayingFilms: PropTypes.arrayOf(
+    PropTypes.shape({
+      genres: PropTypes.array,
+      poster_path: PropTypes.string,
+      backdrop_path: PropTypes.string,
+      overview: PropTypes.string,
+      release_date: PropTypes.string,
+      id: PropTypes.integer,
+      title: PropTypes.string,
+      vote_average: PropTypes.number,
+    })
+  ),
 };
 
 export default Popular;
