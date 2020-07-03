@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import s from './NowPlaying.module.css';
 import { Modal } from 'antd/lib';
 
@@ -79,6 +79,21 @@ const NowPlaying = ({ nowPlayingFilms }) => {
       </Modal>
     </>
   );
+};
+
+NowPlaying.propTypes = {
+  nowPlayingFilms: PropTypes.arrayOf(
+    PropTypes.shape({
+      genres: PropTypes.array.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      backdrop_path: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      vote_average: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default NowPlaying;
