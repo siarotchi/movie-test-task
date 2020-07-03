@@ -7,34 +7,33 @@ import Popular from './components/Popular/Popular';
 import Upcoming from './components/Upcoming/Upcoming';
 import Header from './components/Header/Header';
 
-function App() {
-  const { nowPlayingFilms, popularFilms, upcomingFilms, genres } = useGetFilms();
+const App = () => {
+  const films = useGetFilms();
+
   return (
     <div className="App">
-      {/* <Row> */}
       <header span={24}>
         <Header />
       </header>
-      {/* </Row> */}
 
       <Row>
         <Col className="col" span={24}>
           <h1>Now Playing</h1>
-          <NowPlaying nowPlayingFilms={nowPlayingFilms} genres={genres} />
+          <NowPlaying nowPlayingFilms={films.nowPlayingFilms || []} />
         </Col>
 
         <Col className="col" span={24}>
           <h1>Popular</h1>
-          <Popular popularFilms={popularFilms} />
+          <Popular popularFilms={films.popularFilms || []} />
         </Col>
 
         <Col className="col" span={24}>
           <h1>Upcoming</h1>
-          <Upcoming upcomingFilms={upcomingFilms} />
+          <Upcoming upcomingFilms={films.upcomingFilms || []} />
         </Col>
       </Row>
     </div>
   );
-}
+};
 
 export default App;

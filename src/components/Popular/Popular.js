@@ -1,107 +1,88 @@
-import React, { Component } from 'react';
-import './Popular.scss';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import s from './Popular.module.css';
 import { Modal } from 'antd/lib';
 
-// Horisontal scrolling
+const Popular = ({ popularFilms }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [films, setFilms] = useState(popularFilms);
+  const [modalDetails, setModalDetails] = useState({});
 
-class Popular extends Component {
-  state = {
-    margin: 0,
-    modalVisible: false,
-    poster_path: '',
-    backdrop_path: '',
-    title: '',
-    overview: '',
-    release_date: '',
-    vote_average: '',
-    genres: [],
+  useEffect(() => {
+    setFilms(popularFilms);
+  }, [popularFilms]);
+
+  const updateModalDetails = (item) => {
+    setModalDetails(item);
+    setModalVisible(true);
   };
 
-  setModalVisible = (modalVisible, poster_path, backdrop_path, title, overview, release_date, vote_average, genres) => {
-    this.setState({ modalVisible, poster_path, backdrop_path, title, overview, release_date, vote_average, genres });
-    const element = document.querySelector('body');
-    modalVisible ? element.classList.add('hideScroll') : element.classList.remove('hideScroll');
-  };
+  return (
+    <>
+      <div className={s.container}>
+        {films.map((item) => (
+          <div key={item.id} onClick={() => updateModalDetails(item)}>
+            <img alt="filmImage" src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} />
+            <p>{item.title}</p>
+          </div>
+        ))}
+      </div>
 
-  render() {
-    const { popularFilms } = this.props;
-
-    return (
-      <>
-        <div className="horizontal-scroll-wrapper squares">
-          {popularFilms.map((item, index) => (
-            <section
-              key={index}
-              onClick={() =>
-                this.setModalVisible(
-                  true,
-                  item.poster_path,
-                  item.backdrop_path,
-                  item.title,
-                  item.overview,
-                  item.release_date,
-                  item.vote_average,
-                  item.genres
-                )
-              }
-            >
-              <img alt="filmImage" src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} />
-              <p>{item.title}</p>
-            </section>
-          ))}
-        </div>
-        <Modal
-          centered
-          visible={this.state.modalVisible}
-          onOk={() => this.setModalVisible(false)}
-          onCancel={() => this.setModalVisible(false)}
-          footer={null}
-          // height={635}
-          width={816}
-          bodyStyle={{ padding: '0' }}
-          // closable={false}
+      <Modal
+        centered
+        visible={modalVisible}
+        onOk={() => setModalVisible(false)}
+        onCancel={() => setModalVisible(false)}
+        footer={null}
+        width={816}
+        bodyStyle={{ padding: '0' }}
+        // closable={false}
+      >
+        <div
+          className={s.modalContainer}
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w185/${modalDetails.backdrop_path})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
         >
-          <div
-            className="modalContainer"
-            style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/w185/${this.state.backdrop_path})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-            <div className="modalWrapper">
-              <div className="modalImage">
-                <img alt="modalImg" src={`https://image.tmdb.org/t/p/w185/${this.state.poster_path}`} />
-              </div>
+          <div className={s.modalWrapper}>
+            <div className={s.modalImage}>
+              <img alt="modalImg" src={`https://image.tmdb.org/t/p/w185/${modalDetails.poster_path}`} />
+            </div>
+            <div>
+              <h1 align="center"> {modalDetails.title}</h1>
+              <hr></hr>
+
               <div>
-                <h1 align="center"> {this.state.title}</h1>
+                <h2>Date: {modalDetails.release_date}</h2>
                 <hr></hr>
-
-                <div>
-                  <div>
-                    <h2>Date: {this.state.release_date}</h2>
-                  </div>
-                  <hr></hr>
-                  <div>
-                    <h2>Genre</h2>
-                  </div>
-                  <hr></hr>
-                  <div>
-                    <h2>Rating: {this.state.vote_average}</h2>
-                  </div>
-                </div>
-
+                <h2>
+                  Genre:
+                  {modalDetails.genres?.map((genre) => (
+                    <ul key={genre}>
+                      <li>{genre}</li>
+                    </ul>
+                  ))}
+                </h2>
                 <hr></hr>
-
-                <h1>Description:</h1>
-                <p> {this.state.overview}</p>
+                <h2>Rating: {modalDetails.vote_average}</h2>
               </div>
+
+              <hr></hr>
+
+              <h1>Description:</h1>
+              <p> {modalDetails.overview}</p>
             </div>
           </div>
-        </Modal>
-      </>
-    );
-  }
-}
+        </div>
+      </Modal>
+    </>
+  );
+};
+
+Popular.propTypes = {
+  popularFilms: PropTypes.array.isRequired,
+};
 
 export default Popular;

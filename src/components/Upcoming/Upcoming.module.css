@@ -1,48 +1,28 @@
-.lineContainer {
-  width: 95%;
-  margin: 10px auto;
+body {
+  background: #111;
 }
 
-.lineCarousel {
-  height: 340px;
-  position: relative;
-  overflow: hidden;
-}
-
-.lineSlider {
-  height: 100%;
+.container {
   display: flex;
-  position: absolute;
-  /* transform: translate(-50%); */
+  width: 100%;
+  padding: 20px 40px 20px 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-.lineSlider section {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.lineSliderControls > * {
-  position: absolute;
-  top: 40%;
-  cursor: pointer;
-}
-.lineSliderLeft {
-  left: -10px;
-  color: red;
-}
-.lineSliderRight {
-  right: -10px;
-  color: red;
-}
-.lineSlider img {
+.container img {
   width: 155px;
   height: 240px;
-  margin: 0 20px;
   border: 1px solid white;
+  margin: 0 23px;
 }
-.lineSlider img:hover {
-  transform: scale(1.1);
+.container img:hover {
   cursor: pointer;
+  transform: scale(1.1);
+}
+.container p {
+  width: 155px;
+  margin: 10px 23px 23px 23px;
+  text-align: center;
 }
 
 /* Modal */

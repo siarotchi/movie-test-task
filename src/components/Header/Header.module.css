@@ -1,7 +1,41 @@
 .header {
   height: 300px;
-  border: 1px solid white;
   background-image: url('https://pbs.twimg.com/media/ChlLAvGXIAA_zAt.jpg');
   background-size: cover;
-  /* background-repeat: no-repeat; */
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+.header h2 {
+  font-size: 4em;
+  font-weight: 700;
+  line-height: 1;
+}
+.header h3 {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+.header img {
+  width: 150px;
+  height: 100px;
+  margin-left: 150px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.header img:hover {
+  cursor: pointer;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
