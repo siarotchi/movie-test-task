@@ -23,5 +23,10 @@ code {
 }
 .col h1 {
   color: white;
-  padding: 0 0 0 45px;
+  padding: 10px 0 0 45px;
+}
+@media screen and (max-width: 640px) {
+  .col h1 {
+    font-size: 23px;
+  }
 }
