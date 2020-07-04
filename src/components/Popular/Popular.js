@@ -82,7 +82,7 @@ const Popular = ({ popularFilms }) => {
 };
 
 Popular.propTypes = {
-  nowPlayingFilms: PropTypes.arrayOf(
+  popularFilms: PropTypes.arrayOf(
     PropTypes.shape({
       genres: PropTypes.array.isRequired,
       poster_path: PropTypes.string.isRequired,

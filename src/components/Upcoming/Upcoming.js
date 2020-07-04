@@ -82,7 +82,7 @@ const Upcoming = ({ upcomingFilms }) => {
 };
 
 Upcoming.propTypes = {
-  nowPlayingFilms: PropTypes.arrayOf(
+  upcomingFilms: PropTypes.arrayOf(
     PropTypes.shape({
       genres: PropTypes.array.isRequired,
       poster_path: PropTypes.string.isRequired,
