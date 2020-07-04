@@ -34,7 +34,6 @@ body {
 h2 {
   color: white;
 }
-
 .modalWrapper {
   display: flex;
   align-items: center;
@@ -51,11 +50,39 @@ h2 {
   border-radius: 10%;
   margin: 20px;
 }
+.modalWrapper hr {
+  background-color: white;
+  width: 95%;
+  height: 1px;
+  margin-left: 0;
+}
 
 @media screen and (max-width: 1100px) {
   .container img {
     width: 140px;
     height: 220px;
+  }
+  .modalImage img {
+    width: 280px;
+    height: 400px;
+  }
+  .modalContainer {
+    width: 700px;
+    height: 500px;
+  }
+  .modalWrapper {
+    width: 700px;
+    height: 500px;
+  }
+  .modalDescription {
+    width: 100%;
+    height: 100%;
+  }
+  .modalDescription h2 {
+    font-size: medium;
+  }
+  .modalDescription p {
+    font-size: small;
   }
 }
 
@@ -71,12 +98,85 @@ h2 {
     width: 120px;
     height: 200px;
   }
+  .modalImage img {
+    width: 250px;
+    height: 370px;
+  }
+  .modalContainer {
+    width: 550px;
+    height: 480px;
+  }
+  .modalWrapper {
+    width: 550px;
+    height: 480px;
+  }
+  .modalDescription {
+    width: 100%;
+    height: 100%;
+  }
+  .modalDescription h2 {
+    font-size: small;
+  }
+  .modalDescription p {
+    font-size: smaller;
+  }
 }
-
+@media screen and (max-width: 690px) {
+  .modalImage img {
+    width: 200px;
+    height: 320px;
+  }
+  .modalContainer {
+    width: 450px;
+    height: 510px;
+  }
+  .modalWrapper {
+    width: 450px;
+    height: 510px;
+  }
+  .modalDescription {
+    width: 100%;
+    height: 100%;
+  }
+  .modalDescription h1 {
+    font-size: x-large;
+  }
+  .modalDescription h2 {
+    font-size: small;
+  }
+  .modalDescription p {
+    font-size: smaller;
+  }
+}
 @media screen and (max-width: 540px) {
   .container img {
-    width: 110px;
-    height: 190px;
+    width: 150px;
+    height: 150px;
+  }
+  .modalImage img {
+    width: 150px;
+    height: 270px;
+  }
+  .modalContainer {
+    width: 350px;
+    height: 450px;
+  }
+  .modalWrapper {
+    width: 350px;
+    height: 450px;
+  }
+  .modalDescription {
+    width: 100%;
+    height: 100%;
+  }
+  .modalDescription h1 {
+    font-size: small;
+  }
+  .modalDescription h2 {
+    font-size: smaller;
+  }
+  .modalDescription p {
+    font-size: x-small;
   }
 }
 

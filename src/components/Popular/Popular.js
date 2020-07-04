@@ -50,7 +50,7 @@ const Popular = ({ popularFilms }) => {
             <div className={s.modalImage}>
               <img alt="modalImg" src={`https://image.tmdb.org/t/p/w185/${modalDetails.poster_path}`} />
             </div>
-            <div>
+            <div className={s.modalDescription}>
               <h1 align="center"> {modalDetails.title}</h1>
               <hr></hr>
 

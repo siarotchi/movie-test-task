@@ -50,12 +50,12 @@ const Upcoming = ({ upcomingFilms }) => {
             <div className={s.modalImage}>
               <img alt="modalImg" src={`https://image.tmdb.org/t/p/w185/${modalDetails.poster_path}`} />
             </div>
-            <div>
+            <div className={s.modalDescription}>
               <h1 align="center"> {modalDetails.title}</h1>
               <hr></hr>
 
               <div>
-                <h2>Date: {modalDetails.release_date}</h2>
+                <h1>Date: {modalDetails.release_date}</h1>
                 <hr></hr>
                 <h2>
                   Genre:

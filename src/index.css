@@ -25,8 +25,47 @@ code {
   color: white;
   padding: 10px 0 0 45px;
 }
-@media screen and (max-width: 640px) {
+
+@media screen and (max-width: 1100px) {
+  .ant-modal {
+    width: 700px;
+    margin: 0 10%;
+  }
+  .ant-modal-content {
+    width: 700px;
+    margin: 0 10%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .ant-modal {
+    width: 550px;
+    margin: 0 10%;
+  }
+  .ant-modal-content {
+    width: 550px;
+    margin: 0 10%;
+  }
+}
+@media screen and (max-width: 690px) {
   .col h1 {
     font-size: 23px;
+  }
+  .ant-modal {
+    width: 450px;
+    margin: 0 10%;
+  }
+  .ant-modal-content {
+    width: 450px;
+    margin: 0 10%;
+  }
+}
+@media screen and (max-width: 540px) {
+  ant-modal {
+    width: 350px;
+    margin: 0 10%;
+  }
+  .ant-modal-content {
+    width: 350px;
+    margin: 0 10%;
   }
 }

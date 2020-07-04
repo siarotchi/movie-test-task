@@ -50,7 +50,7 @@ const NowPlaying = ({ nowPlayingFilms }) => {
             <div className={s.modalImage}>
               <img alt="modalImg" src={`https://image.tmdb.org/t/p/w185/${modalDetails.poster_path}`} />
             </div>
-            <div>
+            <div className={s.modalDescription}>
               <h1 align="center"> {modalDetails.title}</h1>
               <hr></hr>
 
@@ -60,7 +60,7 @@ const NowPlaying = ({ nowPlayingFilms }) => {
                 <h2>
                   Genre:
                   {modalDetails.genres?.map((genre) => (
-                    <ul key={genre}>
+                    <ul id="menu" key={genre}>
                       <li>{genre}</li>
                     </ul>
                   ))}
@@ -71,7 +71,7 @@ const NowPlaying = ({ nowPlayingFilms }) => {
 
               <hr></hr>
 
-              <h1>Description:</h1>
+              <h2>Description:</h2>
               <p> {modalDetails.overview}</p>
             </div>
           </div>
